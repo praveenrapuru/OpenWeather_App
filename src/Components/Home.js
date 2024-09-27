@@ -33,7 +33,7 @@ const Home = () => {
   const Api_Key = process.env.REACT_APP_API_KEY;
 
   const fetchWeatherData = (latitude, longitude) => {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${Api_Key}&q=${latitude},${longitude}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${Api_Key}&q=${latitude},${longitude}`;
     fetch(url)
       .then((response) => {
         if (!response.ok) {
@@ -50,7 +50,7 @@ const Home = () => {
   };
 
   const fetchHourlyWeatherData = (latitude, longitude) => {
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${Api_Key}&q=${latitude},${longitude}&hours=24`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${Api_Key}&q=${latitude},${longitude}&hours=24`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -62,7 +62,7 @@ const Home = () => {
   };
 
   const fetchDailyWeatherData = (latitude, longitude) => {
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${Api_Key}&q=${latitude},${longitude}&days=10`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${Api_Key}&q=${latitude},${longitude}&days=10`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -72,7 +72,7 @@ const Home = () => {
 
   const handleSearch = (value) => {
     if (value.length >= 3) {
-      const url = `http://api.weatherapi.com/v1/search.json?key=${Api_Key}&q=${value}`;
+      const url = `https://api.weatherapi.com/v1/search.json?key=${Api_Key}&q=${value}`;
 
       fetch(url)
         .then((response) => response.json())
